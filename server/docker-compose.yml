@@ -15,6 +15,7 @@ locator:
     bash -c 
       "gfsh start locator --name=`hostname` \
        --mcast-port=0 \
+       --hostname-for-clients=localhost \
        --jmx-manager-hostname-for-clients=localhost \
        && tail -n 100 /`hostname`/`hostname`.log \
        && \
@@ -34,12 +35,13 @@ server:
    - "40404"
    - "1099"
   ports:
-   - "40404"
+   - "40404:40404"
   command: >
     bash -c 
       "until gfsh start server --name=`hostname` \
        --locators=geodelocator[10334] \
        --server-port=40404 \
+       --hostname-for-clients=localhost \
        --max-heap=1G; \
        do \
          sleep 3; \

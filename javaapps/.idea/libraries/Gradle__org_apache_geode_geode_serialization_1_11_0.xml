@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.geode:geode-serialization:1.11.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.geode/geode-serialization/1.11.0/b460e1839e9e9f05a72fcef8bc30740f36ca4c1a/geode-serialization-1.11.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.geode/geode-serialization/1.11.0/234d754ce0050d3d73702dc1a2a286e4da622bc/geode-serialization-1.11.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
