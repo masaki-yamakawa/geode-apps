@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.geode:geode-unsafe:1.11.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.geode/geode-unsafe/1.11.0/8fcca1f4985dd928c849ac545ca511b7a3027557/geode-unsafe-1.11.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.geode/geode-unsafe/1.11.0/f104d16601c0623ce7616433b6deb21c52e0c8cc/geode-unsafe-1.11.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

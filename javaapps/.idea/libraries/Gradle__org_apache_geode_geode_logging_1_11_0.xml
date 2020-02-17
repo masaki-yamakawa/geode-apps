@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.geode:geode-logging:1.11.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.geode/geode-logging/1.11.0/d2242cd99f7867e163a3823abb6ca9f0f5b4c6f/geode-logging-1.11.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.geode/geode-logging/1.11.0/947f534235410fb916aff0c7a6588798b9a20bc/geode-logging-1.11.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
