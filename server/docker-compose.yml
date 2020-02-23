@@ -36,11 +36,14 @@ server:
    - "1099"
   ports:
    - "40404:40404"
+  volumes:
+   - ./config:/config/:ro
   command: >
     bash -c 
       "until gfsh start server --name=`hostname` \
        --locators=geodelocator[10334] \
        --server-port=40404 \
+       --cache-xml-file=/config/cache.xml \
        --hostname-for-clients=localhost \
        --max-heap=1G; \
        do \
