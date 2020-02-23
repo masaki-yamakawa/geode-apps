@@ -2,6 +2,7 @@ package geode.handson.cui;
 
 import java.util.Properties;
 
+import org.apache.geode.cache.Cache;
 import org.apache.geode.cache.Declarable;
 import org.apache.geode.cache.EntryEvent;
 import org.apache.geode.cache.util.CacheListenerAdapter;
@@ -15,10 +16,11 @@ public class ChatMessageListener extends CacheListenerAdapter<String, String> im
 	/**
 	 * このイベントハンドラクラスを初期化します。<br>
 	 * このクラスでは特に何も行いません。<br>
+	 * @param cache Cacheオブジェクト
 	 * @param props Propertiesオブジェクト
 	 */
 	@Override
-	public void init(Properties props) {
+	public void initialize(Cache cache, Properties props) {
 	}
 
 	/**
