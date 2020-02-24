@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="apps.main" target="1.8" />
       <module name="apps.test" target="1.8" />
+      <module name="javaapps.main" target="1.8" />
+      <module name="javaapps.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

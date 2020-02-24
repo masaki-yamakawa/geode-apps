@@ -1,5 +1,7 @@
-apply plugin: "java"
-apply plugin: "eclipse"
+group 'geode.handson'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
 apply plugin: 'idea'
 
 sourceCompatibility = '1.8'
@@ -12,14 +14,21 @@ repositories {
 
 dependencies {
 	compile 'org.apache.geode:geode-core:1.11.0'
-	compile "org.apache.logging.log4j:log4j-api:2.12.0"
-	compile "org.apache.logging.log4j:log4j-core:2.12.0"
-	compile "org.slf4j:slf4j-log4j12:1.7.25"
-	compile "org.slf4j:slf4j-api:1.7.25"
+	compile 'org.apache.logging.log4j:log4j-api:2.12.0'
+	compile 'org.apache.logging.log4j:log4j-core:2.12.0'
+	compile 'org.slf4j:slf4j-log4j12:1.7.25'
+	compile 'org.slf4j:slf4j-api:1.7.25'
 
-	testCompile "junit:junit:4.12"
+	testCompile 'junit:junit:4.12'
 }
 
 compileJava {
 	options.encoding = 'UTF-8'
+}
+
+jar {
+	baseName = 'geode-chat-client'
+	manifest {
+		attributes 'Main-Class': 'geode.handson.gui.ChatGuiClient'
+	}
 }
