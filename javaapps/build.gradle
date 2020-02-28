@@ -3,6 +3,7 @@ group 'geode.handson'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
@@ -26,9 +27,24 @@ compileJava {
 	options.encoding = 'UTF-8'
 }
 
+buildscript {
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath 'com.github.jengelman.gradle.plugins:shadow:5.2.0'
+	}
+}
+
 jar {
 	baseName = 'geode-chat-client'
 	manifest {
-		attributes 'Main-Class': 'geode.handson.gui.ChatGuiClient'
+		attributes ('Main-Class': 'geode.handson.gui.ChatGuiClient', 'Implementation-Title': 'Gradle', 'Implementation-Version': 1)
 	}
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+shadowJar {
+	baseName = 'geode-chat-client'
+	archiveName = String.format("%s-%s-all.jar", baseName, version)
 }
