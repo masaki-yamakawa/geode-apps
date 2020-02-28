@@ -23,26 +23,90 @@ locator:
          sleep 10; \
        done"
 
-server:
+server01:
   image: apachegeode/geode:1.11.0
   container_name: geode-server01
   hostname: geodeserver01
-  mem_limit: 2g
+  mem_limit: 1g
   links:
    - locator:geodelocator
   expose:
    - "8080"
-   - "40404"
+   - "40401"
    - "1099"
   ports:
-   - "40404:40404"
+   - "40401:40401"
   volumes:
    - ./config:/config/:ro
   command: >
     bash -c 
       "until gfsh start server --name=`hostname` \
        --locators=geodelocator[10334] \
-       --server-port=40404 \
+       --server-port=40401 \
+       --cache-xml-file=/config/cache.xml \
+       --hostname-for-clients=localhost \
+       --max-heap=1G; \
+       do \
+         sleep 3; \
+       done \
+       && tail -n 100 /`hostname`/`hostname`.log \
+       && \
+       while true; do \
+         sleep 10; \
+       done"
+
+server02:
+  image: apachegeode/geode:1.11.0
+  container_name: geode-server02
+  hostname: geodeserver02
+  mem_limit: 1g
+  links:
+   - locator:geodelocator
+  expose:
+   - "8080"
+   - "40402"
+   - "1099"
+  ports:
+   - "40402:40402"
+  volumes:
+   - ./config:/config/:ro
+  command: >
+    bash -c 
+      "until gfsh start server --name=`hostname` \
+       --locators=geodelocator[10334] \
+       --server-port=40402 \
+       --cache-xml-file=/config/cache.xml \
+       --hostname-for-clients=localhost \
+       --max-heap=1G; \
+       do \
+         sleep 3; \
+       done \
+       && tail -n 100 /`hostname`/`hostname`.log \
+       && \
+       while true; do \
+         sleep 10; \
+       done"
+
+server03:
+  image: apachegeode/geode:1.11.0
+  container_name: geode-server03
+  hostname: geodeserver03
+  mem_limit: 1g
+  links:
+   - locator:geodelocator
+  expose:
+   - "8080"
+   - "40403"
+   - "1099"
+  ports:
+   - "40403:40403"
+  volumes:
+   - ./config:/config/:ro
+  command: >
+    bash -c 
+      "until gfsh start server --name=`hostname` \
+       --locators=geodelocator[10334] \
+       --server-port=40403 \
        --cache-xml-file=/config/cache.xml \
        --hostname-for-clients=localhost \
        --max-heap=1G; \
