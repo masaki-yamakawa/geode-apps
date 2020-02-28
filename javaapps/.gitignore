@@ -1,6 +1,14 @@
+# Maven
 /target/
+
+# Build
 /build/
 /out/
+
+# Gradle
 /.gradle/
+!gradle-wrapper.jar
+
+# Apache Geode
 /locator*view.dat
 /locator*views.log

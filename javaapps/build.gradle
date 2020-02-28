@@ -1,10 +1,17 @@
-apply plugin: "java"
-apply plugin: "eclipse"
+group 'geode.handson'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 version = 1.0
+
+wrapper {
+	gradleVersion = '6.2.1'
+}
 
 repositories {
 	mavenCentral()
@@ -12,14 +19,36 @@ repositories {
 
 dependencies {
 	compile 'org.apache.geode:geode-core:1.11.0'
-	compile "org.apache.logging.log4j:log4j-api:2.12.0"
-	compile "org.apache.logging.log4j:log4j-core:2.12.0"
-	compile "org.slf4j:slf4j-log4j12:1.7.25"
-	compile "org.slf4j:slf4j-api:1.7.25"
+	compile 'org.apache.logging.log4j:log4j-api:2.12.0'
+	compile 'org.apache.logging.log4j:log4j-core:2.12.0'
+	compile 'org.slf4j:slf4j-log4j12:1.7.25'
+	compile 'org.slf4j:slf4j-api:1.7.25'
 
-	testCompile "junit:junit:4.12"
+	testCompile 'junit:junit:4.12'
 }
 
 compileJava {
 	options.encoding = 'UTF-8'
+}
+
+buildscript {
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath 'com.github.jengelman.gradle.plugins:shadow:5.2.0'
+	}
+}
+
+jar {
+	baseName = 'geode-chat-client'
+	manifest {
+		attributes ('Main-Class': 'geode.handson.gui.ChatGuiClient', 'Implementation-Title': 'Gradle', 'Implementation-Version': 1)
+	}
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+shadowJar {
+	baseName = 'geode-chat-client'
+	archiveName = String.format("%s-%s-all.jar", baseName, version)
 }
