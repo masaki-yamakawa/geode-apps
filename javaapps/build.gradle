@@ -9,6 +9,10 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 version = 1.0
 
+wrapper {
+	gradleVersion = '6.2.1'
+}
+
 repositories {
 	mavenCentral()
 }
